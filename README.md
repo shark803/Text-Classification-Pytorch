@@ -1,6 +1,7 @@
-# Text-Classification-Pytorch  参考 git项目 https://github.com/649453932/Chinese-Text-Classification-Pytorch.git 适配IMDB，修改成英文的标准处理流程，对于中文原来项目开箱即用，只需要对于
-# 不同的显存，稍微修改hidden node的数目，以及适当减少batch，防止出现类似out_cuda的错误
-# 之前写过一个版本基于torchtext的预处理，有一个小问题没有纠正，后期补偿   其实也可以直接用tensorflow.keras.preprocessing
+#Text-Classification-Pytorch  
+参考 git项目 https://github.com/649453932/Chinese-Text-Classification-Pytorch.git 适配IMDB，修改成英文的标准处理流程，对于中文原来项目开箱即用，只需要对于
+不同的显存，稍微修改hidden node的数目，以及适当减少batch，防止出现类似out_cuda的错误
+之前写过一个版本基于torchtext的预处理，有一个小问题没有纠正，后期补偿   其实也可以直接用tensorflow.keras.preprocessing
 
 
 
@@ -28,7 +29,6 @@ tensorboardX
 
 
 
-
 ## 性能
 
 模型|acc|备注
@@ -39,16 +39,18 @@ TextRNN_Att|86.88%|BiLSTM+Attention
 TextRCNN|86.80%|BiLSTM+池化
 FastText|84.80%| 原项目在中文新闻分类中bow+bigram+trigram， 效果出奇的好，但是在情感分析中则表现最差，可见同样的分类问题，情感分析对词序更依赖，感受野大的模型效果更好
 DPCNN|87.24%|深层金字塔CNN
-Transformer|86.08%|效果较差
+Transformer|86.08%|
 
-bert|94.83%|bert + fc  
-ERNIE|94.61%|比bert略差(说好的中文碾压bert呢)  
+ 
 
  
 
 ## 使用说明
 ```
+训练周期 20epoch, 采用early stop策略
 # 训练并测试：
+
+
 
 python run.py --model [model_name]
 
@@ -59,7 +61,8 @@ python run.py --model FastText --embedding random
 
 
 
-#致谢  十分感谢北京科技大学的胡文星同学 精简正确的中文文本分类项目，良好的代码结构和规范的预处理流程，极大的减少了我从tensorflow代码过度到pytorch的时间，再次感谢作者的扎实工作和分享精神   
+#致谢  
+十分感谢北京科技大学的胡文星同学 精简正确的中文文本分类项目，良好的代码结构和规范的预处理流程，极大的减少了我从tensorflow代码过度到pytorch的时间，再次感谢作者的扎实工作和分享精神   
 
 
 ## 对应论文
